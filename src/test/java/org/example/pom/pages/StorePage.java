@@ -31,8 +31,9 @@ public class StorePage extends BasePage {
         driver.findElement(getAddToCartButtonForProduct(productName)).click();
     }
 
-    public void clickViewCartLink() {
+    public CartPage clickViewCartLink() {
         driver.findElement(viewCartLink).click();
+        return new CartPage(driver);
     }
 
     private By getAddToCartButtonForProduct(String productName) {
