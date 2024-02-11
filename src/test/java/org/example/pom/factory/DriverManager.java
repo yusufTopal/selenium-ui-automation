@@ -1,4 +1,4 @@
-package org.example.factory;
+package org.example.pom.factory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

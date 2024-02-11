@@ -1,6 +1,6 @@
-package org.example.pom;
+package org.example.pom.base;
 
-import org.example.factory.DriverManager;
+import org.example.pom.factory.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
