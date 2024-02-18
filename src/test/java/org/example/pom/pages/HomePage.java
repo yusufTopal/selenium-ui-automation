@@ -12,8 +12,9 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public void load(){
+    public HomePage load(){
         load("/");
+        return this;
     }
 
     public StorePage clickStoreMenuLink() {
