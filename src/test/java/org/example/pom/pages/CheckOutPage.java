@@ -1,6 +1,7 @@
 package org.example.pom.pages;
 
 import org.example.pom.base.BasePage;
+import org.example.pom.models.BillingAddress;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -97,5 +98,14 @@ public class CheckOutPage extends BasePage {
                 .clickLoginButton();
     }
 
-
+    public CheckOutPage setBillingAddress(BillingAddress billingAddress) {
+        return
+                enterFirstName(billingAddress.getFirstName())
+                .enterLastName(billingAddress.getLastName())
+                .enterEmail(billingAddress.getEmail())
+                .enterAddress1(billingAddress.getAddressLineOne())
+                .enterCity(billingAddress.getCity())
+                .enterPostCode(billingAddress.getPostalCode())
+                .enterEmail(billingAddress.getEmail());
+    }
 }
