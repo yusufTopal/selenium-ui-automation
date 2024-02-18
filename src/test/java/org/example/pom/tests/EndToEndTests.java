@@ -3,6 +3,7 @@ package org.example.pom.tests;
 import org.example.pom.base.BaseTest;
 import org.example.pom.models.BillingAddress;
 import org.example.pom.models.Product;
+import org.example.pom.models.User;
 import org.example.pom.pages.CartPage;
 import org.example.pom.pages.CheckOutPage;
 import org.example.pom.pages.HomePage;
@@ -49,6 +50,8 @@ public class EndToEndTests extends BaseTest {
 
         Product product = new Product(1215);
 
+        User user = new User("tester", "somepwd");
+
         HomePage homePage = new HomePage(driver).load();
 
         StorePage storePage = homePage.clickStoreMenuLink();
@@ -67,7 +70,7 @@ public class EndToEndTests extends BaseTest {
         checkOutPage.clickHereToLoginLink();
         Thread.sleep(3000);
         checkOutPage
-                .login("testUser", "samplePwd")
+                .login(user)
                 .setBillingAddress(billingAddress)
                 .clickPlaceOrderButton();
 

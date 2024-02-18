@@ -2,6 +2,7 @@ package org.example.pom.pages;
 
 import org.example.pom.base.BasePage;
 import org.example.pom.models.BillingAddress;
+import org.example.pom.models.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -95,6 +96,12 @@ public class CheckOutPage extends BasePage {
     public CheckOutPage login(String username, String password) {
         return enterUserName(username)
                 .enterPassword(password)
+                .clickLoginButton();
+    }
+
+    public CheckOutPage login(User user){
+        return enterUserName(user.getUsername())
+                .enterPassword(user.getPassword())
                 .clickLoginButton();
     }
 
