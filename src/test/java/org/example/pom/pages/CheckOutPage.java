@@ -19,32 +19,39 @@ public class CheckOutPage extends BasePage {
         super(driver);
     }
 
-    public void enterFirstName(String firstName) {
+    public CheckOutPage enterFirstName(String firstName) {
         driver.findElement(firstNameField).sendKeys(firstName);
+        return this;
     }
 
-    public void enterLastName(String lastName) {
+    public CheckOutPage enterLastName(String lastName) {
         driver.findElement(lastNameField).sendKeys(lastName);
+        return this;
     }
 
-    public void enterAddress1(String address) {
+    public CheckOutPage enterAddress1(String address) {
         driver.findElement(address1Field).sendKeys(address);
+        return this;
     }
 
-    public void enterCity(String city) {
+    public CheckOutPage enterCity(String city) {
         driver.findElement(cityField).sendKeys(city);
+        return this;
     }
 
-    public void enterPostCode(String postCode) {
+    public CheckOutPage enterPostCode(String postCode) {
         driver.findElement(postCodeField).sendKeys(postCode);
+        return this;
     }
 
-    public void enterEmail(String email) {
+    public CheckOutPage enterEmail(String email) {
         driver.findElement(emailField).sendKeys(email);
+        return this;
     }
 
-    public void clickPlaceOrderButton() {
+    public CheckOutPage clickPlaceOrderButton() {
         driver.findElement(placeOrderButton).click();
+        return this;
     }
 
     public String getNotice() {
