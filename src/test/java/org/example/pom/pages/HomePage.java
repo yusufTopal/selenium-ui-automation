@@ -3,6 +3,7 @@ package org.example.pom.pages;
 import org.example.pom.base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
 
@@ -18,7 +19,7 @@ public class HomePage extends BasePage {
     }
 
     public StorePage clickStoreMenuLink() {
-        driver.findElement(storeMenuLink).click();
+        wait.until(ExpectedConditions.elementToBeClickable(storeMenuLink)).click();
         return new StorePage(driver);
     }
 }
