@@ -35,9 +35,10 @@ public class EndToEndTests extends BaseTest {
         CartPage cartPage = storePage.clickViewCartLink();
         Assert.assertEquals(cartPage.getProductName(), product.getName());
 
-        CheckOutPage checkOutPage =
-                cartPage.clickCheckOutButton()
+        CheckOutPage checkOutPage = cartPage
+                .clickCheckOutButton()
                 .setBillingAddress(billingAddress)
+                .selectDirectBankTransfer()
                 .clickPlaceOrderButton();
         Assert.assertEquals(checkOutPage.getNotice(), "Thank you. Your order has been received.");
     }
@@ -68,6 +69,7 @@ public class EndToEndTests extends BaseTest {
         checkOutPage
                 .login(user)
                 .setBillingAddress(billingAddress)
+                .selectDirectBankTransfer()
                 .clickPlaceOrderButton();
 
         Assert.assertEquals(checkOutPage.getNotice(), "Thank you. Your order has been received.");

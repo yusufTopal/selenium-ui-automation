@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class CheckOutPage extends BasePage {
 
@@ -23,6 +24,9 @@ public class CheckOutPage extends BasePage {
     private final By passwordField = By.id("password");
     private final By loginButton = By.name("login");
     private final By overlay = By.cssSelector(".blockUI.blockOverlay");
+    private final By countryDropdown = By.id("billing_country");
+    private final By stateDropDown = By.id("billing_state");
+    private final By directBankTransferRadioButton = By.id("payment_method_bacs");
 
 
     public CheckOutPage(WebDriver driver) {
@@ -98,7 +102,7 @@ public class CheckOutPage extends BasePage {
     }
 
     public CheckOutPage enterPassword(String password) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(emailField));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField));
         element.clear();
         element.sendKeys(password);
         return this;
@@ -122,13 +126,34 @@ public class CheckOutPage extends BasePage {
     }
 
     public CheckOutPage setBillingAddress(BillingAddress billingAddress) {
-        return
-                enterFirstName(billingAddress.getFirstName())
+        return enterFirstName(billingAddress.getFirstName())
                 .enterLastName(billingAddress.getLastName())
+                .selectCountry(billingAddress.getCountry())
+                .selectState(billingAddress.getState())
                 .enterEmail(billingAddress.getEmail())
-                .enterAddress1(billingAddress.getAddressLineOne())
-                .enterCity(billingAddress.getCity())
+                .enterAddress1(billingAddress.getAddressLineOne()).enterCity(billingAddress.getCity())
                 .enterPostCode(billingAddress.getPostalCode())
                 .enterEmail(billingAddress.getEmail());
     }
+
+    public CheckOutPage selectCountry(String countryName) {
+        Select select = new Select(driver.findElement(countryDropdown));
+        select.selectByVisibleText(countryName);
+        return this;
+    }
+
+    public CheckOutPage selectState(String stateName) {
+        Select select = new Select(driver.findElement(stateDropDown));
+        select.selectByVisibleText(stateName);
+        return this;
+    }
+
+    public CheckOutPage selectDirectBankTransfer() {
+        WebElement radioButton = wait.until(ExpectedConditions.elementToBeClickable(directBankTransferRadioButton));
+        if(!radioButton.isSelected()) {
+            radioButton.click();
+        }
+        return this;
+    }
+
 }
