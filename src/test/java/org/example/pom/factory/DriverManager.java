@@ -16,9 +16,15 @@ public class DriverManager {
 
         switch (browser) {
             case "CHROME" -> {
+                // For CI/CD headless mode can be started configured as follows.
+
+                /*
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
+                */
+
+                driver = new ChromeDriver();
             }
             case "SAFARI" -> driver = new SafariDriver();
             case "EDGE" -> driver = new EdgeDriver();
