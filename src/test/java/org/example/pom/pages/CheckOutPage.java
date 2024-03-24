@@ -148,7 +148,7 @@ public class CheckOutPage extends BasePage {
         return this;
     }
 
-    public CheckOutPage selectDirectBankTransfer() {
+    public CheckOutPage selectDirectBankTransfer   () {
         WebElement radioButton = wait.until(ExpectedConditions.elementToBeClickable(directBankTransferRadioButton));
         if(!radioButton.isSelected()) {
             radioButton.click();
