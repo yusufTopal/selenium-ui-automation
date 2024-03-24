@@ -8,17 +8,18 @@ import org.testng.annotations.Parameters;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @Parameters("browser")
     @BeforeMethod
     public void startDriver(String browser) {
-        driver = new DriverManager().initializeDriver(browser);
+        browser = System.getProperty("browser", browser);
+        driver.set(new DriverManager().initializeDriver(browser));
     }
 
     @AfterMethod
     public void quitDriver() {
-        driver.quit();
+        driver.get().quit();
     }
 
 }

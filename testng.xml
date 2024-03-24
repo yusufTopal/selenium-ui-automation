@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Suite1" verbose="1" >
-    <test name="CHROME">
+<suite name="Suite1" verbose="1" parallel="tests">
+    <test name="CHROME" parallel="methods">
         <parameter name="browser" value="CHROME"/>
         <packages>
             <package name="org.example.pom.tests" />
         </packages>
     </test>
-    <test name="FIREFOX">
+    <test name="FIREFOX" parallel="methods">
         <parameter name="browser" value="FIREFOX"/>
         <packages>
             <package name="org.example.pom.tests" />

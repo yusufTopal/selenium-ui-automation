@@ -22,7 +22,7 @@ public class EndToEndTests extends BaseTest {
 
         Product product = new Product(1215);
 
-        HomePage homePage = new HomePage(driver).load();
+        HomePage homePage = new HomePage(driver.get()).load();
 
         StorePage storePage = homePage.clickStoreMenuLink();
         storePage
@@ -51,7 +51,7 @@ public class EndToEndTests extends BaseTest {
 
         User user = new User("tester", "somepwd");
 
-        HomePage homePage = new HomePage(driver).load();
+        HomePage homePage = new HomePage(driver.get()).load();
 
         StorePage storePage = homePage.clickStoreMenuLink();
         storePage

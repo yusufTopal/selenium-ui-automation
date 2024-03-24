@@ -1,5 +1,6 @@
 package org.example.pom.factory;
 
+import org.example.pom.base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,9 +14,7 @@ public class DriverManager {
     public WebDriver initializeDriver(String browser) {
         WebDriver driver;
 
-        String localBrowser = System.getProperty("browser", browser);
-
-        switch (localBrowser) {
+        switch (browser) {
             case "CHROME" -> {
                 // For CI/CD headless mode can be started configured as follows.
 
