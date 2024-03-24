@@ -9,12 +9,13 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverManager {
 
-    public WebDriver initializeDriver() {
-        String browser = System.getProperty("browser", "CHROME");
 
+    public WebDriver initializeDriver(String browser) {
         WebDriver driver;
 
-        switch (browser) {
+        String localBrowser = System.getProperty("browser", browser);
+
+        switch (localBrowser) {
             case "CHROME" -> {
                 // For CI/CD headless mode can be started configured as follows.
 
